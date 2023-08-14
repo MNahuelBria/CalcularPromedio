@@ -6,6 +6,6 @@ const CalcularPromedio = (numeros) => {
         suma += numeros[i]
     }
 
-    
+    const promedio = suma / numeros.length;
 
 }
