@@ -1,26 +1,33 @@
-// Creando la funcion CalcularPromedio para obtener el promedio de un arreglo de numeros.
-const CalcularPromedio = (numeros) => {
-    
-    // inicializar la variable suma en cero.
-    let suma = 0;
-    
-    // generamos un ciclo iterativo que vaya iterando en cada vuelta un numero distinto.
-    for (let i; i < numeros.length; i++) {
-        // sumar cada numero en la variable suma.
-        suma += numeros[i]
+
+
+// funcion que genera aleatoriamente los numeros del vector.
+const Numeros = () => {
+    let Cantidad = prompt('ingrese cuanta cantidad de numeros quiere en el arreglo: ');
+    let VectorNumeros = [];
+
+    for(let i = 0; i < Cantidad; i++) {
+        let NumeroRandom = Math.round(Math.random()* 100);
+        VectorNumeros.push(NumeroRandom);
     }
 
-    // crear la constante promedio.
-    const promedio = suma / numeros.length;
-
-    // retornar el promedio para ser utilizado fuera de la funcion.
-    return promedio;
+    return VectorNumeros;
 }
 
-// generamos el arreglo de numeros que va a utilizarse para calcular el promedio.
-let ArregloNumeros = [15, 28, 37, 72, 104, 9, 215];
-// invocamos a la funcion CalcularPromedio y guardamos su valor en una constante PromedioCalculado
-const PromedioCalculado = CalcularPromedio(ArregloNumeros);
 
-// retornamos el valor del promedio por pantalla.
-console.log("El promedio de los numeros del arreglo es: " + PromedioCalculado);
+// funcion que calcula el promedio del arreglo de numeros pasado como parametro.
+const CalcularPromedio = (numeros) => {
+    let suma = 0;
+
+    for(let valor = 0; valor < numeros.length; valor++) {
+        suma += numeros[valor];
+    }
+
+    let Promedio = Math.round(suma / numeros.length);
+
+    console.log('el promedio final es: ' + Promedio);
+}
+
+// ejecución por consola
+let arreglo = Numeros();
+console.log('el arreglo es:[ ' + arreglo + ']');
+let PromedioFinal = CalcularPromedio(arreglo);
